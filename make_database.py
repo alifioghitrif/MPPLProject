@@ -19,8 +19,6 @@ if not database_exists(engine.url):
 
 meta = MetaData()
 
-wargadesa = Table("WargaDesa", meta, relationship(secondary=a))
-
 
 class wargadesa(Base):
     __tablename__ = "WargaDesa"
