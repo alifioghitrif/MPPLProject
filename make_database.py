@@ -8,16 +8,43 @@ from sqlalchemy import (
     Date,
     ForeignKey,
 )
+
 from sqlalchemy.orm import declarative_base, relationship
 from sqlalchemy_utils import *
 
 Base = declarative_base()
+
+db_master = create_engine("mysql+pymysql://root:@localhost/information_schema")
+db_master.execute("DROP DATABASE IF EXISTS mppl")
+
 
 engine = create_engine("mysql+pymysql://root:@localhost/mppl")
 if not database_exists(engine.url):
     create_database(engine.url)
 
 meta = MetaData()
+
+aparatwarga = Table(
+    "Aparat_warga_assoc",
+    Base.metadata,
+    Column("aparat_id", ForeignKey("AparatDesa.AparatID")),
+    Column("warga_id", ForeignKey("WargaDesa.WargaID")),
+)
+
+
+class dusun(Base):
+    __tablename__ = "Dusun"
+    DusunID = Column(Integer, autoincrement=True, primary_key=True)
+    Nama_Dusun = Column(String(64))
+
+
+# dusun = Table(
+#     "Dusun",
+#     Base.metadata,
+#     Column("DusunID", Integer, autoincrement=True, primary_key=True),
+#     Column("Nama_Dusun", String(64), autoincrement=True, primary_key=True),
+#     Column("warga_id", ForeignKey("WargaDesa.WargaID")),
+# )
 
 
 class wargadesa(Base):
@@ -32,12 +59,14 @@ class wargadesa(Base):
     Pekerjaan = Column(String(64))
     Status_Dalam_Keluarga = Column(String(64))
     Nomor_Telepon = Column(String(16))
+    aparat = relationship("AparatDesa", secondary=aparatwarga)
+    dusun_id = Column(Integer, ForeignKey("Dusun.DusunID"))
 
 
-class dusun(Base):
-    __tablename__ = "Dusun"
-    DusunID = Column(Integer, autoincrement=True, primary_key=True)
-    Nama_Dusun = Column(String(64))
+#     dusunku = relationship("dusun", back_populates="wargadesaku")
+
+
+# dusun.wargadesaku = relationship("wargadesa", back_populates="dusunku")
 
 
 class aparat_desa(Base):
@@ -46,12 +75,7 @@ class aparat_desa(Base):
     Nama = Column(String(64))
     Email = Column(String(128))
 
-
-class aparatwarga(Base):
-    __tablename__ = "Aparat_warga_assoc"
-    aparatwargaid = Column(Integer, primary_key=True)
-    aparat_id = Column(ForeignKey("AparatDesa.AparatID"))
-    warga_id = Column(ForeignKey("WargaDesa.WargaID"))
+    # wargadesa_id = Column(Integer,ForeignKey(column))
 
 
-meta.create_all(engine)
+Base.metadata.create_all(engine)
