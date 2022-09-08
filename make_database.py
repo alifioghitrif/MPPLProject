@@ -1,3 +1,4 @@
+import json
 from sqlalchemy import (
     create_engine,
     Table,
@@ -37,6 +38,7 @@ class dusun(Base):
     __tablename__ = "Dusun"
     DusunID = Column(Integer, autoincrement=True, primary_key=True)
     Nama_Dusun = Column(String(64))
+    dusunku = relationship("wargadesa")
 
 
 # dusun = Table(
@@ -81,6 +83,12 @@ class aparat_desa(Base):
 
 Base.metadata.create_all(engine)
 
-stmt = insert(dusun).values(Nama_Dusun="username")
-with engine.connect() as conn:
-    conn.execute(stmt)
+
+# Opening JSON file
+with open("data_json.json", "r") as openfile:
+    data_masukan = json.load(openfile)
+
+for nama_dusun in data_masukan["nama_dusun"]:
+    stmt = insert(dusun).values(Nama_Dusun=nama_dusun)
+    with engine.connect() as conn:
+        conn.execute(stmt)
