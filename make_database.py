@@ -7,10 +7,11 @@ from sqlalchemy import (
     MetaData,
     Date,
     ForeignKey,
+    insert,
 )
 
 from sqlalchemy.orm import declarative_base, relationship
-from sqlalchemy_utils import *
+from sqlalchemy_utils import create_database, database_exists
 
 Base = declarative_base()
 
@@ -79,3 +80,7 @@ class aparat_desa(Base):
 
 
 Base.metadata.create_all(engine)
+
+stmt = insert(dusun).values(Nama_Dusun="username")
+with engine.connect() as conn:
+    conn.execute(stmt)
