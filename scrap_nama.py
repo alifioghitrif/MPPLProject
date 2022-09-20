@@ -2,6 +2,9 @@ import re
 import requests as req
 from bs4 import BeautifulSoup as bes4
 import json
+import numpy as np
+import pandas as pd
+
 
 url = "https://id.theasianparent.com/nama-bayi-laki-laki-indonesia"
 page = req.get(url)
@@ -92,11 +95,52 @@ nama_perempuan = list(filter(lambda a: len(a) < 32, nama_perempuan))
 nama_perempuan = set(nama_perempuan)
 nama_perempuan = list(nama_perempuan)
 
+
+url = "http://dindukcapil.rembangkab.go.id/data/pekerjaan"
+pekerjaan = pd.read_html(url)[0].PEKERJAAN.tolist()
+pekerjaan.pop()
+
 data_json = dict()
 data_json["nama_laki_laki"] = nama_laki_laki
 data_json["nama_perempuan"] = nama_perempuan
-data_json["nama_dusun"] = ["Belik", "Gudang", "Jenar", "Ngululor", "Ngulurejo", "Ngulutengah", "Nguluwetan", "Tulangan"]
+data_json["nama_dusun"] = [
+    "Manggis",
+    "truneng",
+    "tumpuk",
+    "Boro",
+    "Belang",
+    "Sawit",
+    "Kebon",
+    "Dlisen",
+    "Joso",
+    "salam",
+    "bengle",
+]
+data_json["status_perkawinan"] = ["Belum Kawin", "Kawin", "Cerai Hidup", "Cerai Mati"]
+data_json["status_dalam_keluarga"] = [
+    "Kepala Keluarga",
+    "Suami",
+    "Isteri",
+    "Anak",
+    "Menantu",
+    "Cucu",
+    "Orang Tua",
+    "Mertua",
+    "Famili Lain",
+    "Pembantu",
+    "Lainnya",
+]
 
+
+from datetime import datetime
+
+data_json["jenis_kelamin"] = ["Laki-Laki", "Perempuan"]
+data_json["tanggal_lahir"] = [
+    i.strftime("%Y-%m-%d") for i in np.arange("1945-01", "2023-01", dtype="datetime64[D]").tolist()
+]
+data_json["pekerjaan"] = pekerjaan
+
+json_object = json.dumps(data_json)
 
 with open("data_json.json", "w") as jsonfileku:
-    json.dump(data_json, jsonfileku)
+    jsonfileku.write(json_object)
