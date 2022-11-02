@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\wargadesa;
+use App\Models\dusun;
 use App\Http\Requests\StorewargadesaRequest;
 use App\Http\Requests\UpdatewargadesaRequest;
+use Illuminate\Support\Facades\DB;
 
 class WargadesaController extends Controller
 {
@@ -16,6 +18,7 @@ class WargadesaController extends Controller
     public function index()
     {
         //
+        
     }
 
     /**
@@ -119,10 +122,39 @@ class WargadesaController extends Controller
             ]);
     }
 
+    
+
     public function getdata()
-    {
+    {   
+        if(request('search')){
+
+            $cari = wargadesa::where('Nama', 'like', '%' . request('search') . '%')
+                ->orwhere('NIK', 'like', '%' . request('search') ."%")
+                ->orwhere('Nomor_KK', 'like', '%' . request('search')  ."%")->paginate(15)->withQueryString();
+            if(count($cari)>0){
+                return view('data', [
+                    "wargadesa" => $cari,
+                    "dusuns" => dusun::all(),
+                    "checker" => 2
+                    ]);
+            }
+            else{
+                return view('data', [
+                    "wargadesa" => wargadesa::Paginate(15),
+                    "checker" => 0,
+                    "dusuns" => dusun::all()
+                    ]);
+            }
+            
+        }
         return view('data', [
-            "wargadesa" => wargadesa::Paginate(15)
+            "wargadesa" => wargadesa::Paginate(15),
+            "checker" => 1,
+            "dusuns" => dusun::all()
             ]);
+        
+       
+        
     }
+    
 }

@@ -24,5 +24,12 @@ class wargadesa extends Model
 
     //     return $tanggallahir;
     // }
+    // public function scopeFilter($query, array $filters){
+    //     if(isset($filters['search']) ? $filters['search'] : false){
+    //         $query ->where('Nama', 'like', '%' . $filters['search'] ."%")
+    //         ->orwhere('NIK', 'like', '%' . $filters['search'] ."%")
+    //         ->orwhere('Nomor_KK', 'like', '%' . $filters['search'] ."%");
+    //     }
+    // }
 }
 

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\DusunController;
 use App\Http\Controllers\WargadesaController;
 use App\Models\wargadesa;
 use Illuminate\Support\Facades\Route;
