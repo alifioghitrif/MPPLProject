@@ -97,4 +97,32 @@ class WargadesaController extends Controller
             "wargadesa" => \App\Models\wargadesa::all()
             ]);
     }
+
+    public function getpekerjaan()
+    {
+        return view('pekerjaan', [
+            "wargadesa" => \App\Models\wargadesa::all()
+            ]);
+    }
+
+    public function getpendidikan()
+    {
+        return view('pendidikan', [
+            "wargadesa" => \App\Models\wargadesa::all()
+            ]);
+    }
+
+    public function getusia()
+    {
+        return view('usia', [
+            "wargadesa" => \App\Models\wargadesa::all()
+            ]);
+    }
+
+    public function getdata()
+    {
+        return view('data', [
+            "wargadesa" => wargadesa::Paginate(15)
+            ]);
+    }
 }

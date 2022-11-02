@@ -1,10 +1,10 @@
   const config = {
-    type: 'line',
-    data: data,
-    options: {}
+      type: 'line',
+      data: data,
+      options: {}
   };
 
-const myChart = new Chart(
-document.getElementById('myChart'),
-config
-);
+  const myChart = new Chart(
+      document.getElementById('myChart'),
+      config
+  );

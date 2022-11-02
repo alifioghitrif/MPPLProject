@@ -2,21 +2,17 @@
 @section('container')
     @php
         $JK = [];
-        $JKS = [];
         foreach($wargadesa as $warga) {
             array_push($JK, $warga["Jenis_Kelamin"]);
         }
         // print_r($tanggallahir);
-        $countJK = array_count_values($JK);
-        foreach ($countJK as $key => $value) {
-            array_push($JKS, $value);
-        }
+        $countJK = array_values(array_count_values($JK));
         $uniqueJK = array_unique($JK);
     @endphp
 
 <div class="main-content">
     <main>
-        <div class="wrapper">
+    <div class="w-50">
     <canvas id="myChart"></canvas>
    </div>
     </div>
@@ -26,7 +22,7 @@
             labels : <?php echo json_encode($uniqueJK, JSON_NUMERIC_CHECK);?>,
             datasets: [{
             label: 'Jenis Kelamin',
-            data: <?php echo json_encode($JKS, JSON_NUMERIC_CHECK);?>,
+            data: <?php echo json_encode($countJK, JSON_NUMERIC_CHECK);?>,
             backgroundColor: ['pink', 'blue'],
             }]
         };

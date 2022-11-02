@@ -46,6 +46,13 @@
                     <a href="/pendidikan"><span>Pendidikan</span></a>
                 </li>                
             </ul>
+            <hr class="hr1" size="3" width="70%" color="white" noshade>
+            <ul>
+                <span>DATA</span>
+                <li>
+                    <a href="/data"><span>Data Penduduk</span></a>
+                </li>                
+            </ul>
 
             <ul class="profile">
                 <a href="/"><img src="{{URL::asset('/images/healthicons_ui-user-profile-outline.png')}}" width="30px" height="30px">

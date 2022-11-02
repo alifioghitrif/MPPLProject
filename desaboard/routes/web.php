@@ -30,20 +30,14 @@ Route::get('/pertumbuhan', function () {
     return view('pertumbuhan');
 });
 
-Route::get('/usia', function () {
-    return view('usia');
-});
+Route::get('/usia', [WargadesaController::class, 'getusia']);
 
 Route::get('/jenis-kelamin', [WargadesaController::class, 'getJK']);
+Route::get('/data', [WargadesaController::class, 'getdata']);
 
+Route::get('/pekerjaan', [WargadesaController::class, 'getpekerjaan']);
 
-Route::get('/pekerjaan', function () {
-    return view('pekerjaan');
-});
-
-Route::get('/pendidikan', function () {
-    return view('pendidikan');
-});
+Route::get('/pendidikan', [WargadesaController::class, 'getpekerjaan']);
 
 Route::get('/login', function () {
     return view('login');
