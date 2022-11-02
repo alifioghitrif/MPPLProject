@@ -1,23 +1,32 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <title>Document</title>
-</head>
-<body>
+@extends('layouts/chart')
+@section('container')
     @php
         $tanggallahir = [];
         foreach($wargadesa as $warga) {
-            array_push($tanggallahir, $warga["Tanggal_Lahir"]);
+            $year = date('Y', strtotime($warga["Tanggal_Lahir"]));
+            array_push($tanggallahir, $year);
         }
-        print_r($tanggallahir)
+        sort($tanggallahir);
+        // print_r($tanggallahir);
+        $counttanggallahir = array_count_values($tanggallahir);
+        $uniquetanggallahir = array_unique($tanggallahir); 
     @endphp
 
-    <div>
+<div class="main-content">
+    <main>
+        <div class="wrapper">
     <canvas id="myChart"></canvas>
+   </div>
     </div>
-</body>
-</html>
+    <script>
+        const data = {
+            datasets: [{
+            label: 'Kelahiran',
+            backgroundColor: 'rgb(255, 99, 132)',
+            borderColor: 'rgb(255, 99, 132)',
+            data: <?php echo json_encode($counttanggallahir, JSON_NUMERIC_CHECK);?>,
+            }]
+        };
+    </script>
+    <script src="{{ URL::asset('js/chart_kelahiran.js') }}"></script>
+@endsection

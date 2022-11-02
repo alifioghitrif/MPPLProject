@@ -90,4 +90,11 @@ class WargadesaController extends Controller
             "wargadesa" => \App\Models\wargadesa::all()
             ]);
     }
+
+    public function getJK()
+    {
+        return view('jenis-kelamin', [
+            "wargadesa" => \App\Models\wargadesa::all()
+            ]);
+    }
 }

@@ -34,9 +34,8 @@ Route::get('/usia', function () {
     return view('usia');
 });
 
-Route::get('/jenis-kelamin', function () {
-    return view('jenis-kelamin');
-});
+Route::get('/jenis-kelamin', [WargadesaController::class, 'getJK']);
+
 
 Route::get('/pekerjaan', function () {
     return view('pekerjaan');
