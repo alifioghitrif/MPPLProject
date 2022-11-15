@@ -43,3 +43,11 @@ Route::get('/pendidikan', [WargadesaController::class, 'getpekerjaan']);
 Route::get('/login', function () {
     return view('login');
 });
+
+Route::get('/tambah-data', [WargadesaController::class, 'tambahdata']);
+Route::post('/tambah-data', [WargadesaController::class, 'store']);
+
+Route::get('/data/edit/{id}', [WargadesaController::class, 'editdata']);
+Route::put('/data/edit/{id}', [WargadesaController::class, 'update']);
+
+Route::delete('/data/delete/{id}', [WargadesaController::class, 'destroy']);

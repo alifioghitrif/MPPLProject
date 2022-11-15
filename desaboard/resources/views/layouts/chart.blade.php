@@ -6,14 +6,15 @@
     <title>Desaboard | Infographic</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
     <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
-    <link rel="stylesheet" href="{{URL::asset('/css/home-stylesheet.css')}}">
+    {{-- <link rel="stylesheet" href="{{URL::asset('/css/home-stylesheet.css')}}"> --}}
+    <link rel="stylesheet" href="{{asset('/css/home-stylesheet.css')}}">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   </head>
 
   <body>
     <div class = "sidebar">
         <div class="sidebar-brand">
-            <a href="/"class="active"><h2>Desaboard</h2></a>
+            <a href="/" ><h2>Desaboard</h2></a>
         </div>
 
         <div class = "sidebar-menu">
@@ -52,6 +53,9 @@
                 <span>DATA</span>
                 <li>
                     <a href="/data"><span>Data Penduduk</span></a>
+                </li>
+                <li>
+                    <a href="/tambah-data"><span>Tambahkan Data Penduduk</span></a>
                 </li>                
             </ul>
 

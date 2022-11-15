@@ -12,10 +12,10 @@
 
 <div class="main-content">
     <main>
-    <div class="w-50">
-    <canvas id="myChart"></canvas>
-   </div>
+    <div>
+    <canvas id="myChart" width="850" height="850" class="JK-canvas"></canvas>
     </div>
+
     <script>
         
         const data = {
@@ -48,4 +48,6 @@
             config
             );
     </script>
+
+</div>
 @endsection

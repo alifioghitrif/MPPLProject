@@ -39,7 +39,7 @@
             datasets: [{
             label: 'Usia',
             data: <?php echo json_encode($counttanggallahir, JSON_NUMERIC_CHECK);?>,
-            backgroundColor: ['red', 'orange', 'yellow', 'green', 'blue', 'purple'],
+            backgroundColor: ['blue'],
             borderWidth: 1,
             }]
         };

@@ -1,10 +1,7 @@
 @extends('layouts/main')
 @section('container')
 @php
-//     foreach($wargadesa as $warga){
-//         print_r($warga);
-//         echo('\n');
-// }
+$counter = 0;
 @endphp
 
 <div class="main-content">
@@ -17,7 +14,7 @@
             <div class="col-md-6">
                 <form action="/data">
                     <div class="input-group mb-3">
-                        <input type="text" class="form-control" placeholder="Cari..." name="search" value="{{ request('search') }}">
+                        <input type="text" class="form-control" placeholder="Cari..." name="search" value="{{request('search')}}">
                         <button class="btn btn-outline-secondary" type="submit" >Cari</button>
                       </div>
                 </form>
@@ -38,67 +35,76 @@
                 <th scope="col">Status dalam Keluarga</th>
                 <th scope="col">Nomor Telepon</th>
                 <th scope="col">Dusun</th>
+                <th scope="col"> Action</th>
+                
             </tr>
         </thead>
             <tbody>
-            @php
-                    // echo($wargadesa);
-                    if ($checker>0) {
-                        foreach($wargadesa as $warga){
-                    echo("<tr>");
-                        echo("<td>");
-                            echo($warga['WargaID']);
-                            echo("</td>");
-                        echo("<td>");
-                            echo($warga['NIK']);
-                            echo("</td>");
-                        echo("<td>");
-                            echo($warga['Nama']);
-                            echo("</td>");
-                        echo("<td>");
-                            echo($warga['Nomor_KK']);
-                            echo("</td>");
-                        echo("<td>");
-                            echo($warga['Jenis_Kelamin']);
-                            echo("</td>");
-                        echo("<td>");
-                            echo($warga['Status_Perkawinan']);
-                            echo("</td>");
-                        echo("<td>");
-                            echo($warga['Tanggal_Lahir']);
-                            echo("</td>");
-                        echo("<td>");
-                            echo($warga['Pekerjaan']);
-                            echo("</td>");
-                        echo("<td>");
-                            echo($warga['Status_Dalam_Keluarga']);
-                            echo("</td>");
-                        echo("<td>");
-                            echo($warga['Nomor_Telepon']);
-                            echo("</td>");
-                        echo("<td>");
-                            foreach ($dusuns as $dusun) {
-                                if ($dusun['DusunID'] == $warga['dusun_id']) {
-                                    echo($dusun['Nama_Dusun']);
-                                }
-                            }
-                            echo("</td>");     
-                    echo("</tr>");
-                }
-                }
+            @if($checker>0)
+
+                        @foreach($wargadesa as $warga)
+                        @php
+                            $counter++;
+                        @endphp
+                    <tr>
+                        <td>
+                            {{ $counter}}
+                            </td>
+                        <td>
+                            {{ $warga['NIK'] }}
+                            </td>
+                        <td>
+                            {{ $warga['Nama'] }}
+                            </td>
+                        <td>
+                            {{ $warga['Nomor_KK'] }}
+                            </td>
+                       <td>
+                            {{ $warga['Jenis_Kelamin'] }}
+                            </td>
+                       <td>
+                            {{ $warga['Status_Perkawinan'] }}
+                            </td>
+                        <td>
+                            {{ $warga['Tanggal_Lahir'] }}
+                            </td>
+                        <td>
+                           {{ $warga['Pekerjaan']}}
+                            </td>
+                        <td>
+                           {{ $warga['Status_Dalam_Keluarga']}}
+                            </td>
+                        <td>
+                            {{ $warga['Nomor_Telepon'] }}
+                            </td>
+                        <td>
+                            @foreach ($dusuns as $dusun) 
+                               @if ($dusun['DusunID'] == $warga['dusun_id']) 
+                                    {{ $dusun['Nama_Dusun'] }}
+                                @endif
+                            @endforeach
+                            </td>
+                        <td>
+                                <a class="btn btn-primary" href="/data/edit/{{ $warga['WargaID'] }}" role="button">Edit</a>
+                                <form action="/data/delete/{{ $warga['WargaID'] }}" method="post" class="d-inline">
+                                @method('delete')
+                                @csrf
+                                <button class="btn btn-danger border-0" onclick="return confirm('Anda yakin ingin menghapus data?')">Delete</button>
+                                </form>
+                            </td> 
+                    </tr>
+                    @endforeach
                 
-                
-                    
-                
-                
-            
-            @endphp
+            @endif
             
         </tbody>
         </table>
        @if ($checker>0)
          {{ $wargadesa->links() }} 
         @endif 
+        @if ($checker<1)
+        <h4> Data Tidak Ditemukan </h4> 
+       @endif 
     
         
     </main>

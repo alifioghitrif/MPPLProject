@@ -12,7 +12,7 @@
   <body>
     <div class = "sidebar">
         <div class="sidebar-brand">
-            <a href="/"><h2>Desaboard</h2></a>
+            <a href="/" ><h2>Desaboard</h2></a>
         </div>
 
         <div class = "sidebar-menu">
@@ -51,6 +51,9 @@
                 <span>DATA</span>
                 <li>
                     <a href="/data"><span>Data Penduduk</span></a>
+                </li>
+                <li>
+                    <a href="/tambah-data"><span>Tambahkan Data Penduduk</span></a>
                 </li>                
             </ul>
 
