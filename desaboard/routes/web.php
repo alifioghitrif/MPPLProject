@@ -1,9 +1,10 @@
 <?php
 
-use App\Http\Controllers\DusunController;
-use App\Http\Controllers\WargadesaController;
-use App\Models\wargadesa;
+
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\LoginController;
+use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\WargadesaController;
 
 
 /*
@@ -21,6 +22,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/home', function () {
+    return view('welcome');
+});
+
 Route::get('/kelahiran', [WargadesaController::class, 'getkelahiran']);
 
 Route::get('/kematian', function () {
@@ -32,17 +37,17 @@ Route::get('/pertumbuhan', function () {
 });
 
 Route::get('/usia', [WargadesaController::class, 'getusia']);
-
 Route::get('/jenis-kelamin', [WargadesaController::class, 'getJK']);
 Route::get('/data', [WargadesaController::class, 'getdata']);
-
 Route::get('/pekerjaan', [WargadesaController::class, 'getpekerjaan']);
-
 Route::get('/pendidikan', [WargadesaController::class, 'getpekerjaan']);
 
-Route::get('/login', function () {
-    return view('login');
-});
+Route::get('/login', [LoginController::class, 'index'])->middleware('guest');
+Route::post('/login', [LoginController::class, 'authenticate']);
+Route::post('/logout', [LoginController::class, 'logout']);
+
+Route::get('/register', [RegisterController::class, 'index']);
+Route::post('/register', [RegisterController::class, 'store']);
 
 Route::get('/tambah-data', [WargadesaController::class, 'tambahdata']);
 Route::post('/tambah-data', [WargadesaController::class, 'store']);

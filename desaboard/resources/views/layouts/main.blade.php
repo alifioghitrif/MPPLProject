@@ -46,6 +46,7 @@
                     <a href="/pendidikan"><span>Pendidikan</span></a>
                 </li>                
             </ul>
+            @auth
             <hr class="hr1" size="3" width="70%" color="white" noshade>
             <ul>
                 <span>DATA</span>
@@ -56,11 +57,18 @@
                     <a href="/tambah-data"><span>Tambahkan Data Penduduk</span></a>
                 </li>                
             </ul>
+            @endauth
 
             <ul class="profile">
-                <a href="/"><img src="{{URL::asset('/images/healthicons_ui-user-profile-outline.png')}}" width="30px" height="30px">
+                <a href="/login"><img src="{{URL::asset('/images/healthicons_ui-user-profile-outline.png')}}" width="30px" height="30px">
                 <span>Profile Info</span></a>
             </ul>
+            @auth
+            <form action="/logout" method="post">
+                @csrf
+                <button type="submit" class=dropdown-item><i class="bi bi-box-arrow-right">logout</i></button>
+            </form>
+            @endauth
         </div>
     </div>
     @yield('container')
