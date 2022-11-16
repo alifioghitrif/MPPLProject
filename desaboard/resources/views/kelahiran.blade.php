@@ -28,5 +28,6 @@
             }]
         };
     </script>
-    <script src="{{ URL::asset('js/chart_kelahiran.js') }}"></script>
+    // <script src="{{ asset('js/chart_kelahiran.js') }}"></script>
+    <script src="{{ secure_asset('js/chart_kelahiran.js') }}"></script>
 @endsection

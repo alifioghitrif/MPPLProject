@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\wargadesa;
 use App\Models\dusun;
+use Illuminate\Http\Request;
 use App\Http\Requests\StorewargadesaRequest;
 use App\Http\Requests\UpdatewargadesaRequest;
 use Illuminate\Support\Facades\DB;
@@ -37,17 +38,23 @@ class WargadesaController extends Controller
      * @param  \App\Http\Requests\StorewargadesaRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StorewargadesaRequest $request)
+    public function store(Request $request)
     {
+        
         $validateData = $request->validate([
-            'NIK' => 'required | max:16',
+            'NIK' => 'required | max:16 | unique:wargadesas',
             'Nama' => 'required | max:64',
-            'WargaID' => 'required',
-
+            'Nomor_KK' => 'required | max:16',
+            'Jenis_Kelamin' => 'required | max:32',
+            'Status_Perkawinan'=> 'required | max:32',
+            'Tanggal_Lahir' => 'required | date',
+            'Pekerjaan' => 'required | max:64',
+            'Status_Dalam_Keluarga' => 'required | max:64',
+            'Nomor_Telepon' => 'required | max:16',
+            'dusun_id' => 'required | int'
         ]);
-        wargadesa::insert([
-            'NIK' => 'nik'
-        ]);
+        wargadesa::create($validateData);
+        return redirect('/data')-> with('success', 'Data berhasil ditambahkan');
     }
 
     /**
@@ -79,20 +86,24 @@ class WargadesaController extends Controller
      * @param  \App\Models\wargadesa  $wargadesa
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdatewargadesaRequest $request, wargadesa $wargadesa)
+    public function update($id, Request $request, wargadesa $wargadesa)
     {
+        
         $validateData = $request->validate([
-            'nik' => 'required | max:16',
-            'nama' => 'required | max:64'
+            'NIK' => 'required | max:16',
+            'Nama' => 'required | max:64',
+            'Nomor_KK' => 'required | max:16',
+            'Jenis_Kelamin' => 'required | max:32',
+            'Status_Perkawinan'=> 'required | max:32',
+            'Tanggal_Lahir' => 'required | date',
+            'Pekerjaan' => 'required | max:64',
+            'Status_Dalam_Keluarga' => 'required | max:64',
+            'Nomor_Telepon' => 'required | max:16',
+            'dusun_id' => 'required|int '
         ]);
-        if($validateData){
-        wargadesa::where('WargaID', '=', $wargadesa)->update([
-            'NIK' => 'nik'
-        ]);
-        }
-        return redirect('/data');
-
-
+        $wargadesa = wargadesa::where('WargaID', '=', $id)->update($validateData) ;
+        return redirect('/data')->with('success', 'Data Berhasil Diubah');
+        
     }
 
     /**

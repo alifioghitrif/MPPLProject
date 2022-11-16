@@ -2,11 +2,8 @@
 @section('container')
 <div class="main-content">
     <main>
-        {{-- <div class="text-right mb-3">
-            <a href="/data" class="btn btn-primary pull-right">Back</a>
-        </div> --}}
         <h3>
-            Edit Data Penduduk Desa Temboro
+            Tambah Data Penduduk Desa Temboro
         </h3>
         @php
             $statuses = ['Kawin', 'Belum Kawin', 'Cerai Hidup', 'Cerai Mati'];
@@ -16,21 +13,21 @@
         <form action="/tambah-data", method="post">
             @csrf
             <div class="form-group mb-3">
-                <label for="nik">NIK</label>
-                <input class="form-control" type="text" id="nik" placeholder="NIK"  required autofocus name="nik"> 
+                <label for="NIK">NIK</label>
+                <input class="form-control" type="text" id="NIK" placeholder="NIK"  required autofocus name="NIK"> 
 
             </div>
             <div class="form-group mb-3">
-                <label for="namaFormControllInput">Nama Lengkap</label>
-                <input class="form-control" type="text" id="namaFormControllInput" placeholder="Nama Lengkap" required autofocus name="nama"> 
+                <label for="Nama">Nama Lengkap</label>
+                <input class="form-control" type="text" id="Nama" placeholder="Nama Lengkap" required autofocus name="Nama"> 
             </div>
             <div class="form-group mb-3">
-                <label for="namaFormControllInput">Nomor KK</label>
-                <input class="form-control" type="text" id="namaFormControllInput" placeholder="Nomor KK" required autofocus name="nomorkk"> 
+                <label for="Nomor_KK">Nomor KK</label>
+                <input class="form-control" type="text" id="Nomor_KK" placeholder="Nomor KK" required autofocus name="Nomor_KK"> 
             </div>
             <div class="form-group mb-3">
-                <label for="jkFormControllInput">Jenis Kelamin</label>
-                <select class="form-control" id="jkFormControllInput" required autofocus name="jk">
+                <label for="Jenis_Kelamin">Jenis Kelamin</label>
+                <select class="form-control" id="Jenis_Kelamin" required autofocus name="Jenis_Kelamin">
                     @php
                     foreach($JK as $jk){
                        echo('<option value="'. $jk. '"');
@@ -40,8 +37,8 @@
                 </select>
             </div>
             <div class="form-group mb-3">
-                <label for="statusFormControllInput">Status Perkawinan</label>
-                <select class="form-control" id="statusFormControllInput" required autofocus name="perkawinan">
+                <label for="Status_Perkawinan">Status Perkawinan</label>
+                <select class="form-control" id="Status_Perkawinan" required autofocus name="Status_Perkawinan">
                     @php
                         foreach($statuses as $status){
                            echo('<option value="'. $status. '"');
@@ -51,16 +48,16 @@
                 </select>
             </div>
             <div class="form-group mb-3">
-                <label for="ttlFormControllInput">Tanggal Lahir</label>
-                <input class="form-control" type="date" id="ttlFormControllInput" required autofocus name="ttl"> 
+                <label for="Tanggal_Lahir">Tanggal Lahir</label>
+                <input class="form-control" type="date" id="Tanggal_Lahir" required autofocus name="Tanggal_Lahir"> 
             </div>
             <div class="form-group mb-3">
-                <label for="pekerjaanFormControllInput">Pekerjaan</label>
-                <input class="form-control" type="text" id="pekerjaanFormControllInput" placeholder="Pekerjaan" required autofocus name="pekerjaan"> 
+                <label for="Pekerjaan">Pekerjaan</label>
+                <input class="form-control" type="text" id="Pekerjaan" placeholder="Pekerjaan" required autofocus name="Pekerjaan"> 
             </div>
             <div class="form-group mb-3">
-                <label for="statusFormControllInput">Status dalam Keluarga</label>
-                <select class="form-control" id="statusFormControllInput" required autofocus name="status">
+                <label for="Status_Dalam_Keluarga">Status dalam Keluarga</label>
+                <select class="form-control" id="Status_Dalam_Keluarga" required autofocus name="Status_Dalam_Keluarga">
                     @php
                         foreach($kedudukans as $kedudukan){
                            echo('<option value="'. $kedudukan. '"');
@@ -70,12 +67,12 @@
                 </select>
             </div>
             <div class="form-group mb-3">
-                <label for="noFormControllInput">Nomor Telepon</label>
-                <input class="form-control" type="text" id="noFormControllInput" placeholder="Nomor Telepon" required autofocus name="nomor"> 
+                <label for="Nomor_Telepon">Nomor Telepon</label>
+                <input class="form-control" type="text" id="Nomor_Telepon" placeholder="Nomor Telepon" required autofocus name="Nomor_Telepon"> 
             </div>
             <div class="form-group mb-3">
-                <label for="statusFormControllInput">Dusun Tinggal</label>
-            <select class="form-control" id="statusFormControllInput" required autofocus name="dusun">
+                <label for="dusun_id">Dusun Tinggal</label>
+            <select class="form-control" id="dusun_id" required autofocus name="dusun_id">
                 @php
                     foreach($dusuns as $dusun){
                        echo('<option value="'. $dusun['DusunID']. '"');

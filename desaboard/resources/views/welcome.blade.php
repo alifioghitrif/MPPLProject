@@ -6,7 +6,9 @@
                 <section id="home">
                     <div class="kolom">
                         <h2>Selamat Datang di DesaBoard</h2>
-                        {{-- <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto totam vero quis! Nobis impedit molestias blanditiis ea consequuntur ratione quia.</p> --}}
+                        @guest
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto totam vero quis! Nobis impedit molestias blanditiis ea consequuntur ratione quia.</p>
+                        @endguest
                         @auth
                         <p>Selamat datang kembali {{ auth()->user()->name }}</p>
                         @endauth

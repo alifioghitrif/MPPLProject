@@ -42,17 +42,17 @@ Route::get('/data', [WargadesaController::class, 'getdata']);
 Route::get('/pekerjaan', [WargadesaController::class, 'getpekerjaan']);
 Route::get('/pendidikan', [WargadesaController::class, 'getpekerjaan']);
 
-Route::get('/login', [LoginController::class, 'index'])->middleware('guest');
+Route::get('/login', [LoginController::class, 'index'])->name('login')->middleware('guest');
 Route::post('/login', [LoginController::class, 'authenticate']);
-Route::post('/logout', [LoginController::class, 'logout']);
+Route::post('/logout', [LoginController::class, 'logout'])->middleware('auth');
 
-Route::get('/register', [RegisterController::class, 'index']);
+Route::get('/register', [RegisterController::class, 'index'])->middleware('guest');
 Route::post('/register', [RegisterController::class, 'store']);
 
-Route::get('/tambah-data', [WargadesaController::class, 'tambahdata']);
+Route::get('/tambah-data', [WargadesaController::class, 'tambahdata'])->middleware('auth');
 Route::post('/tambah-data', [WargadesaController::class, 'store']);
 
-Route::get('/data/edit/{id}', [WargadesaController::class, 'editdata']);
+Route::get('/data/edit/{id}', [WargadesaController::class, 'editdata'])->middleware('auth');
 Route::put('/data/edit/{id}', [WargadesaController::class, 'update']);
 
-Route::delete('/data/delete/{id}', [WargadesaController::class, 'destroy']);
+Route::delete('/data/delete/{id}', [WargadesaController::class, 'destroy'])->middleware('auth');
