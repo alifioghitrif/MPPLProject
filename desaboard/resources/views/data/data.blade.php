@@ -45,7 +45,7 @@ $counter = 0;
                 <th scope="col">Status dalam Keluarga</th>
                 <th scope="col">Nomor Telepon</th>
                 <th scope="col">Dusun</th>
-                <th scope="col"> Action</th>
+                <th scope="col"> </th>
                 
             </tr>
         </thead>

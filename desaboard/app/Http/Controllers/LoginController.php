@@ -24,7 +24,7 @@ class LoginController extends Controller
         {
             $request->session()->regenerate();
 
-            return redirect()->intended('/');
+            return redirect()->intended('/home');
         }
         return back()->with('loginError', 'Login gagal, Email atau Password salah');
     }

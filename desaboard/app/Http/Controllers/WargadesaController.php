@@ -120,7 +120,7 @@ class WargadesaController extends Controller
 
     public function getkelahiran()
     {
-        return view('kelahiran', [
+        return view('charts/kelahiran', [
             "wargadesa" => \App\Models\wargadesa::all(),
             'title' => 'Desaboard | Kelahiran'
             ]);
@@ -128,7 +128,7 @@ class WargadesaController extends Controller
 
     public function getJK()
     {
-        return view('jenis-kelamin', [
+        return view('charts/jenis-kelamin', [
             "wargadesa" => \App\Models\wargadesa::all(),
             'title' => 'Desaboard | Jenis Kelamin'
             ]);
@@ -136,7 +136,7 @@ class WargadesaController extends Controller
 
     public function getpekerjaan()
     {
-        return view('pekerjaan', [
+        return view('charts/pekerjaan', [
             "wargadesa" => \App\Models\wargadesa::all(),
             'title' => 'Desaboard | Pekerjaan'
             ]);
@@ -144,7 +144,7 @@ class WargadesaController extends Controller
 
     public function getpendidikan()
     {
-        return view('pendidikan', [
+        return view('charts/pendidikan', [
             "wargadesa" => \App\Models\wargadesa::all(),
             'title' => 'Desaboard | Pendidikan'
             ]);
@@ -152,7 +152,7 @@ class WargadesaController extends Controller
 
     public function getusia()
     {
-        return view('usia', [
+        return view('charts/usia', [
             "wargadesa" => \App\Models\wargadesa::all(),
             'title' => 'Desaboard | Sebaran Usia'
             ]);
@@ -166,7 +166,7 @@ class WargadesaController extends Controller
                 ->orwhere('NIK', 'like', '%' . request('search') ."%")
                 ->orwhere('Nomor_KK', 'like', '%' . request('search')  ."%")->paginate(10)->withQueryString();
             if(count($cari)>0){
-                return view('data', [
+                return view('data/data', [
                     "wargadesa" => $cari,
                     "dusuns" => dusun::all(),
                     "checker" => 2,
@@ -174,7 +174,7 @@ class WargadesaController extends Controller
                     ]);
             }
             else{
-                return view('data', [
+                return view('data/data', [
                     "wargadesa" => wargadesa::Paginate(15),
                     "checker" => 0,
                     "dusuns" => dusun::all(),
@@ -183,7 +183,7 @@ class WargadesaController extends Controller
             }
             
         }
-        return view('data', [
+        return view('data/data', [
             "wargadesa" => wargadesa::Paginate(10),
             "checker" => 1,
             "dusuns" => dusun::all(),
@@ -193,7 +193,7 @@ class WargadesaController extends Controller
 
     public function editdata($id){
         $data = wargadesa::where('WargaID', 'like', '%'. $id. '%')->first();    
-        return view('editdata', [
+        return view('data/editdata', [
             "wargadesa" => $data,
             "dusuns" => dusun::all(),
             'title' => 'Desaboard | Edit Data'
@@ -202,7 +202,7 @@ class WargadesaController extends Controller
 
     public function tambahdata()
     {
-        return view('tambahdata', [
+        return view('data/tambahdata', [
             "dusuns" => dusun::all(),
             'title' => 'Desaboard | Tambah Data'
         ]);
