@@ -10,7 +10,7 @@ class RegisterController extends Controller
 {
     public function index(){
         return view('register.index',[
-            'title' => 'Register'
+            'title' => 'Desaboard | Register'
         ]);
         
     }
@@ -19,7 +19,8 @@ class RegisterController extends Controller
         $validatedData = $request -> validate([
             'name' => 'required|max:255',
             'email' => 'required|email:dns|unique:users',
-            'password' => 'required|min:8|max:255'
+            'password' => 'required|min:8|max:255',
+            'password_confirmation' => 'min:8|same:password'
         ]);
 
         $validatedData['password'] = bcrypt($validatedData['password']);

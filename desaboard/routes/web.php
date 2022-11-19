@@ -19,21 +19,28 @@ use App\Http\Controllers\WargadesaController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('welcome', [
+        'title' => 'Desaboard | Home'
+    ]);
 });
 
 Route::get('/home', function () {
-    return view('welcome');
+    return view('welcome',[
+        'title' => 'Desaboard | Home'
+    ]);
 });
 
 Route::get('/kelahiran', [WargadesaController::class, 'getkelahiran']);
 
 Route::get('/kematian', function () {
-    return view('kematian');
+    return view('welcome',[
+        'title' => 'Desaboard | Kematian'
+    ]);
 });
-
 Route::get('/pertumbuhan', function () {
-    return view('pertumbuhan');
+    return view('welcome',[
+        'title' => 'Desaboard | Pertumbuhan'
+    ]);
 });
 
 Route::get('/usia', [WargadesaController::class, 'getusia']);

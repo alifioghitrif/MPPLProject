@@ -1,6 +1,4 @@
-@extends('layouts/login')
-@section('container')
-<div class="main-content">
+{{-- <div class="main-content">
 <main>
   
   @if (session()->has('loginError'))
@@ -54,5 +52,48 @@
   <p class="mt-5 mb-3 text-muted">&copy; 2017–2022</p>
 </form>
 </main>
-</div>
+</div> --}}
+
+@extends('layouts/login')
+@section('container')
+<body>
+   <div class="container">
+   
+       <div class="login">
+        @if (session()->has('loginError'))
+        <div class="alert alert-danger" role="alert">
+         
+            {{ session('loginError') }}
+        @endif
+      
+        @if (session()->has('success'))
+        <div class="alert alert-success" role="alert"> 
+            {{ session('success') }}
+        </div>
+        @endif
+           <form method="post" action="/login">
+            @csrf
+               <h1>Masuk</h1>
+               <hr>
+               <label for="email">Email</label>
+               <input type="email" class="form-control @error('email') is-invalid @enderror" id="email" placeholder="name@example.com" name="email" autofocus required value="{{ old('ema') }}">
+               @error('email') 
+                <div class="invalid-feedback">
+                  {{ $message }}
+                </div>
+                @enderror
+               <label for="">Kata Sandi</label>
+               <input type="password" class="form-control" id="password" placeholder="Masukan Kata Sandi" name="password" required>
+               <button type="submit"> Masuk</button>
+               <p>
+                   <label for="">Belum Punya Akun? <a href="/register">Daftar Di Sini</a></label>
+               </p>
+           </form>
+       </div>
+       <div class="right">
+           <img src="{{ asset('images/bro.png') }}" alt="">
+       </div>
+   </div>
+</body>
 @endsection
+

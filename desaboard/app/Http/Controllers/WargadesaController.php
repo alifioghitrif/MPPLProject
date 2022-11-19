@@ -121,39 +121,42 @@ class WargadesaController extends Controller
     public function getkelahiran()
     {
         return view('kelahiran', [
-            "wargadesa" => \App\Models\wargadesa::all()
+            "wargadesa" => \App\Models\wargadesa::all(),
+            'title' => 'Desaboard | Kelahiran'
             ]);
     }
 
     public function getJK()
     {
         return view('jenis-kelamin', [
-            "wargadesa" => \App\Models\wargadesa::all()
+            "wargadesa" => \App\Models\wargadesa::all(),
+            'title' => 'Desaboard | Jenis Kelamin'
             ]);
     }
 
     public function getpekerjaan()
     {
         return view('pekerjaan', [
-            "wargadesa" => \App\Models\wargadesa::all()
+            "wargadesa" => \App\Models\wargadesa::all(),
+            'title' => 'Desaboard | Pekerjaan'
             ]);
     }
 
     public function getpendidikan()
     {
         return view('pendidikan', [
-            "wargadesa" => \App\Models\wargadesa::all()
+            "wargadesa" => \App\Models\wargadesa::all(),
+            'title' => 'Desaboard | Pendidikan'
             ]);
     }
 
     public function getusia()
     {
         return view('usia', [
-            "wargadesa" => \App\Models\wargadesa::all()
+            "wargadesa" => \App\Models\wargadesa::all(),
+            'title' => 'Desaboard | Sebaran Usia'
             ]);
     }
-
-    
 
     public function getdata()
     {   
@@ -166,14 +169,16 @@ class WargadesaController extends Controller
                 return view('data', [
                     "wargadesa" => $cari,
                     "dusuns" => dusun::all(),
-                    "checker" => 2
+                    "checker" => 2,
+                    'title' => 'Desaboard | Cari Data'
                     ]);
             }
             else{
                 return view('data', [
                     "wargadesa" => wargadesa::Paginate(15),
                     "checker" => 0,
-                    "dusuns" => dusun::all()
+                    "dusuns" => dusun::all(),
+                    'title' => 'Desaboard | Cari Data'
                     ]);
             }
             
@@ -181,25 +186,25 @@ class WargadesaController extends Controller
         return view('data', [
             "wargadesa" => wargadesa::Paginate(10),
             "checker" => 1,
-            "dusuns" => dusun::all()
+            "dusuns" => dusun::all(),
+            'title' => 'Desaboard | Cari Data'
             ]);
-        
-       
-        
     }
 
     public function editdata($id){
         $data = wargadesa::where('WargaID', 'like', '%'. $id. '%')->first();    
         return view('editdata', [
             "wargadesa" => $data,
-            "dusuns" => dusun::all()
+            "dusuns" => dusun::all(),
+            'title' => 'Desaboard | Edit Data'
         ]);
     }
 
     public function tambahdata()
     {
         return view('tambahdata', [
-            "dusuns" => dusun::all()
+            "dusuns" => dusun::all(),
+            'title' => 'Desaboard | Tambah Data'
         ]);
     }
 
