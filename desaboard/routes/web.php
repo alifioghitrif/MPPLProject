@@ -45,7 +45,6 @@ Route::get('/pertumbuhan', function () {
 
 Route::get('/usia', [WargadesaController::class, 'getusia']);
 Route::get('/jenis-kelamin', [WargadesaController::class, 'getJK']);
-Route::get('/data', [WargadesaController::class, 'getdata']);
 Route::get('/pekerjaan', [WargadesaController::class, 'getpekerjaan']);
 Route::get('/pendidikan', [WargadesaController::class, 'getpekerjaan']);
 
@@ -56,10 +55,12 @@ Route::post('/logout', [LoginController::class, 'logout'])->middleware('auth');
 Route::get('/register', [RegisterController::class, 'index'])->middleware('guest');
 Route::post('/register', [RegisterController::class, 'store']);
 
+Route::get('/data', [WargadesaController::class, 'getdata'])->middleware('auth');
+
 Route::get('/tambah-data', [WargadesaController::class, 'tambahdata'])->middleware('auth');
-Route::post('/tambah-data', [WargadesaController::class, 'store']);
+Route::post('/tambah-data', [WargadesaController::class, 'store'])->middleware('auth');
 
 Route::get('/data/edit/{id}', [WargadesaController::class, 'editdata'])->middleware('auth');
-Route::put('/data/edit/{id}', [WargadesaController::class, 'update']);
+Route::put('/data/edit/{id}', [WargadesaController::class, 'update'])->middleware('auth');
 
 Route::delete('/data/delete/{id}', [WargadesaController::class, 'destroy'])->middleware('auth');

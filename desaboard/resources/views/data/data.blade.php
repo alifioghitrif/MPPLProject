@@ -94,12 +94,12 @@ $counter = 0;
                                 @endif
                             @endforeach
                             </td>
-                        <td>
+                        <td style='white-space: nowrap'>
                                 <a class="btn btn-primary" href="/data/edit/{{ $warga['WargaID'] }}" role="button">Edit</a>
                                 <form action="/data/delete/{{ $warga['WargaID'] }}" method="post" class="d-inline">
                                 @method('delete')
                                 @csrf
-                                <button class="btn btn-danger border-0" onclick="return confirm('Anda yakin ingin menghapus data?')">Delete</button>
+                                <button class="btn btn-danger" onclick="return confirm('Anda yakin ingin menghapus data?')">Hapus</button>
                                 </form>
                             </td> 
                     </tr>

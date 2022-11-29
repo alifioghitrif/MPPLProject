@@ -22,12 +22,12 @@
                 <li>
                     <a href="/kelahiran" class="active"><span>Kelahiran</span></a>
                 </li>
-                <li>
+                {{-- <li>
                     <a href="/kematian"><span>Kematian</span></a>
                 </li>
                 <li>
                     <a href="/pertumbuhan"><span>Pertumbuhan</span></a>
-                </li>
+                </li> --}}
             </ul>
 
             <hr class="hr1" size="3" width="70%" color="white" noshade>
@@ -43,9 +43,9 @@
                 <li>
                     <a href="/pekerjaan"><span>Pekerjaan</span></a>
                 </li>
-                <li>
+                {{-- <li>
                     <a href="/pendidikan"><span>Pendidikan</span></a>
-                </li>                
+                </li>                 --}}
             </ul>
             @auth
             <hr class="hr1" size="3" width="70%" color="white" noshade>
@@ -61,16 +61,18 @@
             @endauth
 
             <ul class="profile">
-                <a href="/login"><img src="{{asset('/images/healthicons_ui-user-profile-outline.png')}}" width="30px" height="30px">
+                <img src="{{asset('/images/healthicons_ui-user-profile-outline.png')}}" width="30px" height="30px"><span></span>
                 {{-- <a href="/login"><img src="{{secure_asset('/images/healthicons_ui-user-profile-outline.png')}}" width="30px" height="30px"> --}}
-                <span>Profile Info</span></a>
-            </ul>
-            @auth
-            <form action="/logout" method="post">
+                @auth
+                <form action="/logout" method="post" class="inl">
                 @csrf
-                <button type="submit" class=dropdown-item><i class="bi bi-box-arrow-right">logout</i></button>
-            </form>
-            @endauth
+                <button type="submit" class=dropdown-item><span>logout</span></button>
+                </form>
+                @endauth
+                @guest
+                <a href="/login" class="inl">Login</a>
+                @endguest
+            </ul>
         </div>
     </div>
     @yield('container')

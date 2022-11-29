@@ -57,7 +57,7 @@
               <h1>Daftar</h1>
               <hr>
               <label for="name">Nama Pengguna</label>
-              <input type="text" class="form-control @error('name') is-invalid @enderror" id="name" placeholder="Nama Pengguna" name="name" value="{{ old('name') }}">
+              <input type="text" class="form-control @error('name') is-invalid @enderror" id="name" placeholder="Nama Pengguna" name="name" value="{{ old('name') }}" required>
               @error('name') 
               <div class="invalid-feedback">
                 {{ $message }}
@@ -65,7 +65,7 @@
               @enderror
 
               <label for="email">Email address</label>
-              <input type="email" class="form-control @error('email') is-invalid @enderror" id="email" placeholder="name@example.com" name="email" value="{{ old('email') }}">
+              <input type="email" class="form-control @error('email') is-invalid @enderror" id="email" placeholder="name@example.com" name="email" value="{{ old('email') }}" required>
               @error('email') 
               <div class="invalid-feedback">
                 {{ $message }}
@@ -73,7 +73,7 @@
               @enderror
 
               <label for="password">Kata Sandi</label>
-              <input type="password" class="form-control @error('password') is-invalid @enderror" id="password" placeholder="Kata Sandi" name="password" >
+              <input type="password" class="form-control @error('password') is-invalid @enderror" id="password" placeholder="Kata Sandi" name="password" required>
               @error('password') 
               <div class="invalid-feedback">
                 {{ $message }}
@@ -81,7 +81,7 @@
               @enderror
 
               <label for="">Konfirmasi Kata Sandi</label>
-              <input type="password" class="form-control @error('password_confirmation') is-invalid @enderror" id="password_confirmation" placeholder="Kata Sandi" name="password_confirmation" >
+              <input type="password" class="form-control @error('password_confirmation') is-invalid @enderror" id="password_confirmation" placeholder="Kata Sandi" name="password_confirmation" required>
               @error('password_confirmation') 
               <div class="invalid-feedback">
                 {{ $message }}
