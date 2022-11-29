@@ -97,10 +97,53 @@ Image_Login_and_Signup
 ## Risk and Action
 
 
-| Risk                                  | Action                 |
-| ------------------------------------  |:-------------------:|
-| Pencuria                      | Project Manager     |
-| Muhammad Alifio Ghitrif Al’bazij      | UI/UX Designer      |
-| Fathin Humaira                        | Front-end Developer |
-| Sigit Raditya Pangestu                | Front-end Developer |
-| Putra Dwi Prasetyo                    | Back-end Developer  |
+| Risk                      | Action                                                |
+| ------------------------- |:-----------------------------------------------------:|
+| Pencurian Data            | Menggunakan Enkripsi pada Data dan Proses             |
+| Server Down               | Mengganti Server Maupun Menambah Server               |
+| Implementasi Fitur Rumit  | Mempelajari Fitur tersebut di Internet dengan Seksama |
+
+
+## Metodologi
+
+### WaterFall
+
+Waterfall[^1] adalah model pengembangan sekuensial. Kemajuan pengembangan pada suatu proses bergantung pada hasil fase pengembangan sebelumnya. 
+
+**Alasan** pengembangan aplikasi Desaboard dengan metode waterfall adalah metode waterfall mudah diimplementasikan
+
+
+### Tahapan Metodologi Waterfall
+
+|                           |                                                       |
+| ------------------------- |:-----------------------------------------------------:|
+| Planning                  | Merencanakan Proses Pengembangan                      |
+| Analysis Design           | Merancang Requirement yang Dibutuhkan                 |
+| Implementation            | Membangun aplikasi sesuai dengan Tahapan sebelumnya   |
+| Maintenance               | Memelihara Sistem Pasca Pengembangan                  |
+
+## Link Demo
+
+Link URL
+
+## Link Test Case
+
+
+
+## Link Deploy
+
+## Link Figma
+https://www.figma.com/file/yPJIGEjsDU5AczPMEtZJvI/Desaboard?node-id=0%3A1&t=gi1xfUE2z9RzJuGQ-1
+a
+
+
+## Kendala
+
+Project Manager :
+Kurang ada waktu, Ada Kendala tak terduga (UTS dan Penyakit)
+
+Backend engineer:
+Versi PHP yang tidak didukung oleh penyedia layanan hosting membuat pengembang harus mencari alternatif lain.
+
+Frontend engineer:
+Waktu yang terbatas, sulit manage waktu, banyak tugas lain, sakit
