@@ -63,7 +63,7 @@ Aplikasi ini berbasis web dikarenakan lebih praktis bagi sisi pengguna dan lebih
 <img src="Pictures/Desaboard ERD.jpg"> </img>
 
 ## Activity Diagram
-
+<img src="]Pictures/Desaboard/Activity Diagram - login signup.png"> </img>
 ## ERD
 
 ## Risk and Action
