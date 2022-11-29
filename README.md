@@ -80,6 +80,13 @@ Aplikasi ini berbasis web dikarenakan lebih praktis bagi sisi pengguna dan lebih
 
 ## Risk and Action
 
+| Tables                   | Are                                                   |
+| ------------------------ |:-----------------------------------------------------:|
+| Pencurian Data           | Menggunakan Enkripsi pada Data dan Proses             |
+| Server Down              | Mengganti Server Maupun Menambah Server               |
+| Implementasi Fitur Rumit | Mempelajari Fitur tersebut di Internet dengan Seksama |
+
+
 ## Metodologi
 Metode pengembangan yang dipakai adalah Waterfall. Waterfall adalah model pengembangan sekuensial. Kemajuan pengembangan pada suatu proses bergantung pada hasil fase pengembangan sebelumnya. 
 
