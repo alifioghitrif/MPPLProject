@@ -118,6 +118,7 @@ Aplikasi yang well maintained
 https://www.figma.com/file/yPJIGEjsDU5AczPMEtZJvI/Desaboard?node-id=0%3A1&t=gi1xfUE2z9RzJuGQ-1
 
 ## Link Deploy
+http://desaboard-production.up.railway.app
 
 ## Kendala
 * Project Manager : Kurang ada waktu, Ada Kendala tak terduga (UTS dan Penyakit)
