@@ -63,8 +63,8 @@ Aplikasi ini berbasis web dikarenakan lebih praktis bagi sisi pengguna dan lebih
 <img src="Pictures/Desaboard Use Case.jpg"> </img>
 
 ## Activity Diagram
-### Login and Signup
-<img src="Pictures/Desaboard Activity Diagram - login signup.png"> </img>
+### Login 
+<img src="Pictures/Desaboard Activity Diagram - login.png"> </img>
 
 ### Tambah Data Penduduk
 <img src="Pictures/Desaboard Activity Diagram - add data.png"> </img>
