@@ -60,11 +60,20 @@ Aplikasi ini berbasis web dikarenakan lebih praktis bagi sisi pengguna dan lebih
   * Storage :  SSD 1024 GB
 
 ## Use Case
-<img src="Pictures/Desaboard ERD.jpg"> </img>
+<img src="Pictures/Desaboard Use Case.jpg"> </img>
 
 ## Activity Diagram
-<img src="]Pictures/Desaboard/Activity Diagram - login signup.png"> </img>
+###Login and Signup
+<img src="Pictures/Desaboard/Activity Diagram - login signup.png"> </img>
+###Tambah Data Penduduk
+<img src="Pictures/Desaboard/Activity Diagram - add data.png"> </img>
+###Ubah Data Penduduk
+<img src="Pictures/Desaboard/Activity Diagram - edit data.png"> </img>
+###Hapus Data Penduduk
+<img src="Pictures/Desaboard/Activity Diagram - delete data.png"> </img>
+
 ## ERD
+<img src="Pictures/Desaboard ERD.jpg"> </img>
 
 ## Risk and Action
 
