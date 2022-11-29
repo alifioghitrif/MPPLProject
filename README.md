@@ -60,7 +60,7 @@ Aplikasi ini berbasis web dikarenakan lebih praktis bagi sisi pengguna dan lebih
   * Storage :  SSD 1024 GB
 
 ## Use Case
-![Use Case](Desaboard ERD.jpg)
+![Use Case]("Pictures/Desaboard\ ERD.jpg")
 ## Activity Diagram
 
 ## ERD
