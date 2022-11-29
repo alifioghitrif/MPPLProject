@@ -64,13 +64,19 @@ Aplikasi ini berbasis web dikarenakan lebih praktis bagi sisi pengguna dan lebih
 
 ## Activity Diagram
 ###Login and Signup
-<img src="Pictures/Desaboard/Activity Diagram - login signup.png"> </img>
+
+<img src="Pictures/Desaboard Activity Diagram - login signup.png"> </img>
+
 ###Tambah Data Penduduk
-<img src="Pictures/Desaboard/Activity Diagram - add data.png"> </img>
+
+<img src="Pictures/Desaboard Activity Diagram - add data.png"> </img>
+
 ###Ubah Data Penduduk
-<img src="Pictures/Desaboard/Activity Diagram - edit data.png"> </img>
+
+<img src="Pictures/Desaboard Activity Diagram - edit data.png"> </img>
+
 ###Hapus Data Penduduk
-<img src="Pictures/Desaboard/Activity Diagram - delete data.png"> </img>
+<img src="Pictures/Desaboard Activity Diagram - delete data.png"> </img>
 
 ## ERD
 <img src="Pictures/Desaboard ERD.jpg"> </img>
@@ -115,12 +121,6 @@ Pasca Implementasi
 Pada tahapan ini kami memelihara sistem secara berkala agar sistem dapat terhindar dari risiko yang mampu mengganggu proses bisnis.
 #### Output
 Aplikasi yang well maintained
-
-## Estimation
-
-## Cost Estimation
-
-## Progress
 
 ## Link Demo
 
